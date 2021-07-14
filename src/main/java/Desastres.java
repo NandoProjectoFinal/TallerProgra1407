@@ -52,4 +52,29 @@ public class Desastres {
     public void setCantidad(int cantidad) {
         this.cantidad = cantidad;
     }
+
+    public static void seleccionDesastre(){
+        mostrarLista();
+        listaDesastres();
+    }
+
+    private static String[] listaDesastres() {
+        GestorArchivo a  = new GestorArchivo();
+        String ruta = "C:\\Users\\HP\\Documents\\NetBeansProjects\\TallerProgra\\Desastres";
+        String[] lista = a.leerArchivo(ruta).split("\n");
+        return lista;
+    }
+
+    private static void mostrarLista() {
+        GestorArchivo a  = new GestorArchivo();
+        String ruta = "C:\\Users\\HP\\Documents\\NetBeansProjects\\TallerProgra\\Desastres";
+        String[] lista = a.leerArchivo(ruta).split("\n");
+        for (int i=0; i<lista.length; i++){
+            System.out.println("["+(i)+"]" + " " + lista[i]);
+        }
+    }
+
+    public static void main(String[] args) {
+        mostrarLista();
+    }
 }
